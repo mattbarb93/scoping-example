@@ -116,18 +116,52 @@ const f = jonas.calcAge;
 
 // addArrow(2, 5, 8);
 
-let age = 30;
-let oldAge = age;
-age = 31;
-console.log(age);
-console.log(oldAge);
+// let age = 30;
+// let oldAge = age;
+// age = 31;
+// console.log(age);
+// console.log(oldAge);
 
-const me = {
-  name: 'Jonas',
-  age: 30,
+// const me = {
+//   name: 'Jonas',
+//   age: 30,
+// };
+
+// const friend = me;
+// friend.age = 27;
+// console.log('Friend:', friend);
+// console.log('Me:', me);
+
+//Primitive Types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+//Reference Types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
 };
 
-const friend = me;
-friend.age = 27;
-console.log('Friend:', friend);
-console.log('Me:', me);
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log(marriedJessica);
+console.log(jessica);
+
+//Copying Objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alfred', 'Bob'],
+};
+
+//Object.assign only works on the first level. Only creates a shallow clone, not a deep clone (copies everything)
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis'; //This works
+jessicaCopy.family.push('Chris');
+jessicaCopy.family.push('David'); // Both of these dont
+console.log(jessica2);
+console.log(jessicaCopy);
